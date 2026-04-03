@@ -11,3 +11,5 @@ outputs/
 .vscode/
 .DS_Store
 *.ipynb_checkpoints
+
+kaggle.json
