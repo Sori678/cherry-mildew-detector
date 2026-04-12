@@ -5,6 +5,7 @@ import pandas as pd
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import joblib
+import os
 
 def page_mildew_detector_body():
     st.write("### Mildew Detector")
