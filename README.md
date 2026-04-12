@@ -60,5 +60,5 @@ The application is built using **Streamlit** and contains the following pages:
 
 ## Credits
 * Dataset provided by Code Institute.
-* Developed by [Your Name / Sori678].
+* Developed by Bivol Sorin / Sori678.
 ```
