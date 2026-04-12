@@ -15,9 +15,16 @@ def page_mildew_detector_body():
 
     if images_buffer:
         version = 'v1'
-        model = load_model(f"outputs/{version}/cherry_leaves_model.h5")
-        image_shape = joblib.load(f"outputs/{version}/image_shape.pkl")
-        class_indices = joblib.load(f"outputs/{version}/class_indices.pkl")
+        
+        # DEFINIREA CĂILOR (Varianta compatibilă cu Heroku)
+        # os.path.join construiește calea corectă indiferent de sistem (Windows/Linux)
+        model_path = os.path.join(os.getcwd(), 'outputs', version, 'cherry_leaves_model.h5')
+        image_shape_path = os.path.join(os.getcwd(), 'outputs', version, 'image_shape.pkl')
+        class_indices_path = os.path.join(os.getcwd(), 'outputs', version, 'class_indices.pkl')
+
+        model = load_model(model_path)
+        image_shape = joblib.load(image_shape_path)
+        class_indices = joblib.load(class_indices_path)
         labels_map = {v: k for k, v in class_indices.items()}
 
         # IMPORTANT: Here we are using a simple LIST, not a DataFrame
@@ -40,7 +47,8 @@ def page_mildew_detector_body():
             
             # Add the data to the standard Python list
             all_results.append({"Name": img_file.name, "Result": pred_label})
-
+            
+        
         # Only at the end do we convert the list into a table
         if all_results:
             st.success("Analysis Report")
