@@ -5,7 +5,6 @@ __pycache__/
 
 # Raw data and large outputs
 inputs/
-outputs/
 
 # System files and IDE
 .vscode/

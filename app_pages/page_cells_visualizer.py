@@ -4,12 +4,13 @@ import pandas as pd
 import numpy as np
 from matplotlib.image import imread
 import matplotlib.pyplot as plt
+import random
 
 def page_cells_visualizer_body():
     st.write("### Cells Visualizer")
     st.info(
-        f"* The client is interested in conducting a study to visually differentiate "
-        f"a healthy cherry leaf from one with powdery mildew.")
+        f"**Business Requirement 1**: The client is interested in conducting a study to visually "
+        f"differentiate a healthy cherry leaf from one with powdery mildew.")
     
     version = 'v1'
     
@@ -24,17 +25,44 @@ def page_cells_visualizer_body():
 
         st.image(avg_powdery_mildew, caption='Powdery Mildew - Average and Variability')
         st.image(avg_healthy, caption='Healthy Leaf - Average and Variability')
-        st.write("---")
+        st.write("---\")
 
     # Checkbox for Difference between averages
     if st.checkbox("Differences between average healthy and average powdery mildew leaves"):
         diff_between_avgs = imread(f"outputs/{version}/avg_diff.png")
 
         st.warning(
-            f"* This study shows the visual difference between the two categories.")
+            f"* This study highlights the subtle discolorations and texture changes "
+            f"between the two categories.")
         st.image(diff_between_avgs, caption='Difference between average images')
 
-    # Placeholder for Montage
+    # Image Montage Logic - ACUM IMPLEMENTATĂ COMPLET
     if st.checkbox("Image Montage"): 
-        st.write("* To view the montage, click on the 'Create Montage' button")
-        st.info("Feature to be implemented.")
+        st.write("* To view the montage, select a label and click the 'Create Montage' button")
+        
+        data_dir = 'inputs/test' # Folosim setul de test pentru montaj
+        labels = os.listdir(data_dir)
+        label_to_display = st.selectbox("Select label", labels)
+        
+        if st.button("Create Montage"):
+            create_montage(data_dir, label_to_display, nrows=3, ncols=3, figsize=(10, 10))
+
+def create_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
+    """Generates an image montage of random leaf samples."""
+    images_list = os.listdir(os.path.join(dir_path, label_to_display))
+    if len(images_list) < nrows * ncols:
+        st.error("Not enough images in the folder to create a montage.")
+        return
+
+    img_idx = random.sample(images_list, nrows * ncols)
+    
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize)
+    for x in range(0, nrows * ncols):
+        img = imread(os.path.join(dir_path, label_to_display, img_idx[x]))
+        img_shape = img.shape
+        axes.flatten()[x].imshow(img)
+        axes.flatten()[x].set_title(f"Width: {img_shape[1]}px\\nHeight: {img_shape[0]}px")
+        axes.flatten()[x].axis('off')
+    
+    plt.tight_layout()
+    st.pyplot(fig)
