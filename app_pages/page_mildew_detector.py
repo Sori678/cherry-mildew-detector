@@ -12,7 +12,8 @@ def download_dataframe_as_csv(df):
     """Generates a link to download the analysis report as a CSV file."""
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="mildew_detection_report.csv">Download Report</a>'
+    # Create the HTML tag for the download link
+    href = f'<a href="data:file/csv;base64,{b64}" download="mildew_detection_report.csv">Download Analysis Report</a>'
     return href
 
 def page_mildew_detector_body():
@@ -31,6 +32,7 @@ def page_mildew_detector_body():
 
     if images_buffer:
         version = 'v1'
+        # We use os.path.join for maximum compatibility between systems
         model_path = os.path.join(os.getcwd(), 'outputs', version, 'cherry_leaves_model.h5')
         image_shape_path = os.path.join(os.getcwd(), 'outputs', version, 'image_shape.pkl')
         class_indices_path = os.path.join(os.getcwd(), 'outputs', version, 'class_indices.pkl')
@@ -72,5 +74,4 @@ def page_mildew_detector_body():
             table_report = pd.DataFrame(all_results)
             st.table(table_report)
             
-            # Download link
-            st.markdown(download_dataframe_as_csv(table_report), unsafe_allow_bytes=True)
+            st.markdown(download_dataframe_as_csv(table_report), unsafe_allow_html=True)
