@@ -97,12 +97,12 @@ def page_cells_visualizer_body():
                     )
             else:
                 st.error(
-                    "No label folders were found inside inputs/cherry-leaves/test."
+                    "No label folders were found inside inputs/test."
                 )
         else:
             st.error(
                 "The test image folder was not found. "
-                "Please make sure inputs/cherry-leaves/test exists in the project."
+                "Please make sure inputs/test exists in the project."
             )
 
 
