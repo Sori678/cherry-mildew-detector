@@ -3,12 +3,14 @@ venv/
 __pycache__/
 *.py[cod]
 
-# Raw data and large outputs
-inputs/
-
-# System files and IDE
+# IDE and system files
 .vscode/
 .DS_Store
 *.ipynb_checkpoints
 
+# Kaggle credentials
 kaggle.json
+
+# Optional temporary files
+*.tmp
+*.log
