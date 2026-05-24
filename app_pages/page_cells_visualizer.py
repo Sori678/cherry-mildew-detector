@@ -17,7 +17,7 @@ def page_cells_visualizer_body():
 
     version = "v1"
     outputs_path = Path("outputs") / version
-    data_dir = Path("inputs") / "cherry-leaves" / "test"
+    data_dir = Path("inputs") / "test"
 
     if st.checkbox("Difference between average and variability image"):
         powdery_path = outputs_path / "avg_diff_powdery_mildew.png"
