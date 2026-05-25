@@ -83,7 +83,7 @@ The dataset was preprocessed and organized into:
 # Dataset Distribution
 
 | Category | Train | Validation | Test | Total |
-|----------|------|------------|------|------|
+|----------|------:|-----------:|-----:|------:|
 | Healthy | 1472 | 211 | 421 | 2104 |
 | Powdery Mildew | 1472 | 211 | 421 | 2104 |
 | **Total** | **2944** | **422** | **842** | **4208** |
@@ -112,14 +112,14 @@ Cherry leaves affected by Powdery Mildew present visible visual markers such as:
 - discoloration,
 - texture inconsistencies.
 
-We also hypothesize that a Convolutional Neural Network (CNN) can learn these visual patterns and classify infected leaves with high accuracy.
+We also hypothesize that a Convolutional Neural Network can learn these visual patterns and classify infected leaves with high accuracy.
 
 ---
 
 ## Validation
 
 The hypothesis was validated through:
-- Exploratory Data Analysis (EDA),
+- Exploratory Data Analysis,
 - average image analysis,
 - variability analysis,
 - image montage inspection,
@@ -169,7 +169,7 @@ These techniques help identify visual differences between healthy and infected l
 
 ## CNN Classification Model
 
-A Convolutional Neural Network (CNN) was developed for binary image classification.
+A Convolutional Neural Network was developed for binary image classification.
 
 The model:
 - receives cherry leaf images,
@@ -206,7 +206,7 @@ The Streamlit dashboard includes:
 ## ML Performance
 - training accuracy plots,
 - training loss plots,
-- dataset distribution analysis,
+- interactive dataset distribution chart,
 - model evaluation metrics.
 
 ---
@@ -216,10 +216,52 @@ The Streamlit dashboard includes:
 The final CNN model achieved:
 - Training Accuracy: >99%
 - Validation Accuracy: >99%
+- Test Accuracy: 99.44%
 - Stable validation loss
 - Balanced prediction performance
 
 The model successfully generalized to unseen test data.
+
+---
+
+# Business Conclusions
+
+The project successfully achieved both business requirements defined by Farmy & Foods.
+
+## Requirement 1 — Visual Study
+
+The visual analysis tools demonstrated clear visual differences between healthy leaves and leaves affected by Powdery Mildew:
+- average image analysis revealed visible discoloration patterns,
+- variability analysis highlighted texture inconsistencies,
+- image montage inspection confirmed visible fungal patterns.
+
+These findings validate that Powdery Mildew produces identifiable visual markers that can support disease monitoring.
+
+---
+
+## Requirement 2 — Automated Disease Detection
+
+The CNN classification model achieved 99.44% accuracy on unseen test data, exceeding the original target of 97%.
+
+The deployed dashboard allows users to:
+- upload cherry leaf images,
+- receive instant predictions,
+- review prediction confidence,
+- support rapid disease identification.
+
+The final system can help reduce manual inspection time and improve disease monitoring efficiency in agricultural environments.
+
+---
+
+# Actionable Insights
+
+The project provides the following actionable insights:
+
+1. Powdery Mildew can be visually distinguished from healthy leaves using image analysis.
+2. The balanced dataset supports reliable model training and reduces class bias.
+3. The CNN model exceeds the required business accuracy threshold.
+4. The dashboard provides a practical tool for early disease detection.
+5. The visual and predictive outputs support faster decision-making for plantation monitoring.
 
 ---
 
@@ -231,16 +273,19 @@ The model successfully generalized to unseen test data.
 |---|---|---|
 | Navigation Menu | All pages load correctly | PASS |
 | Cells Visualizer | Visualizations display correctly | PASS |
+| Image Montage | Random image samples are displayed correctly | PASS |
 | Image Upload | Uploaded images generate predictions | PASS |
-| Model Metrics | Training plots load correctly | PASS |
+| Model Metrics | Training plots and interactive chart load correctly | PASS |
 
 ---
 
 ## Technical Validation
 
 - Python code validated with PEP8 standards.
-- Deployment tested in cloud environment.
+- Deployment tested in Heroku cloud environment.
 - Model prediction pipeline verified successfully.
+- Streamlit dashboard tested after deployment.
+- Required image and output files verified in production.
 
 ---
 
@@ -256,6 +301,26 @@ Deployment steps:
 3. Configure Config Vars if required.
 4. Deploy from the main branch.
 5. Verify dashboard functionality after deployment.
+
+---
+
+# Repository and Branch Management
+
+The project is maintained on a single stable deployment branch.
+
+The deployed Heroku application uses the same branch as the final submitted GitHub repository to avoid branch inconsistencies and deployment path issues.
+
+---
+
+# Future Improvements
+
+Possible future improvements for the project include:
+- supporting additional cherry leaf diseases,
+- implementing mobile device optimization,
+- adding prediction confidence explanations,
+- integrating cloud image storage,
+- expanding the dataset with more real-world agricultural images,
+- enabling batch image predictions for industrial use.
 
 ---
 
