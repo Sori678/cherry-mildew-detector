@@ -1,14 +1,29 @@
-# Mildew Detection in Cherry Leaves
+# Cherry Mildew Detector
 
-This Machine Learning project was developed to detect Powdery Mildew disease in cherry leaves using Computer Vision and Deep Learning techniques.
+Cherry Mildew Detector is a Machine Learning web application developed to identify Powdery Mildew disease in cherry leaves using Deep Learning and Computer Vision techniques.
 
 The application allows users to:
-- visually analyze healthy and infected leaves,
-- explore image variability and average image comparisons,
-- upload leaf images for real-time prediction,
-- evaluate model performance through interactive visualizations.
+- analyze healthy and infected leaves,
+- compare average and variability images,
+- upload cherry leaf images,
+- receive real-time predictions,
+- review model performance metrics.
 
-The project was developed using the CRISP-DM methodology and deployed as a Streamlit dashboard.
+The project was developed using the CRISP-DM methodology and deployed with Streamlit and Heroku.
+
+---
+
+# Live Project
+
+## Heroku Deployment
+
+https://cherry-mildew-detector-sori-a62d7dccec61.herokuapp.com/
+
+---
+
+# GitHub Repository
+
+https://github.com/Sori678/cherry-mildew-detector
 
 ---
 
@@ -32,51 +47,31 @@ To improve disease detection efficiency and reduce crop losses, the company requ
 
 # Business Requirements
 
-## Requirement 1 — Visual Differentiation Study
+## Requirement 1 — Visual Study
 
-The client requires a visual study capable of:
-- differentiating healthy cherry leaves from infected leaves,
-- identifying common visual patterns associated with Powdery Mildew,
-- supporting disease analysis through image visualization techniques.
+The dashboard must:
+- compare healthy and infected leaves,
+- display average and variability images,
+- provide image montage visualization.
 
-The visual study includes:
-- average image analysis,
-- variability analysis,
-- image montage visualization.
+## Requirement 2 — Disease Detection
 
----
-
-## Requirement 2 — Automated Mildew Detection
-
-The client requires a Machine Learning system capable of:
-- receiving uploaded cherry leaf images,
-- predicting whether the leaf is healthy or infected,
-- achieving at least 97% prediction accuracy.
-
-The final solution must be accessible through an interactive Streamlit dashboard.
+The dashboard must:
+- allow users to upload cherry leaf images,
+- predict if the leaf is healthy or infected,
+- provide accurate predictions.
 
 ---
 
 # Dataset Content
 
-## Dataset Source
+The dataset contains RGB images of cherry leaves divided into two categories:
+- Healthy
+- Powdery Mildew
 
-The dataset was sourced from the Code Institute Kaggle repository:
+Dataset source:
 
 https://www.kaggle.com/codeinstitute/cherry-leaves
-
----
-
-## Dataset Description
-
-The dataset contains RGB images of cherry leaves divided into two categories:
-- Healthy Leaves
-- Powdery Mildew Infected Leaves
-
-The dataset was preprocessed and organized into:
-- training set,
-- validation set,
-- test set.
 
 ---
 
@@ -90,16 +85,130 @@ The dataset was preprocessed and organized into:
 
 ---
 
-# Dataset Characteristics
+# Technologies Used
 
-- Image Type: RGB Images
-- Total Images: 4,208
-- Classification Type: Binary Classification
-- Dataset Balance: Balanced
-- Image Subject: Cherry Leaves
-- Disease Target: Powdery Mildew
+- Python
+- Streamlit
+- TensorFlow CPU
+- Keras
+- NumPy
+- Pandas
+- Plotly
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Pillow
+- Joblib
+- Heroku
+- GitHub
 
-The dataset is balanced, which helps reduce prediction bias during model training.
+---
+
+# Dashboard Features
+
+## Project Summary
+
+This page presents:
+- project background,
+- business requirements,
+- dataset information,
+- dataset distribution.
+
+![Project Summary](images/project%20summary.png)
+
+---
+
+## Cells Visualizer
+
+This page allows users to:
+- compare average images,
+- analyze image variability,
+- generate image montages.
+
+### Average and Variability Study
+
+![Cells Visualizer](images/cels%20visualizer.png)
+
+### Healthy Leaf Average Image
+
+![Healthy Leaf](images/cels%20visualizer1.png)
+
+### Difference Between Healthy and Powdery Mildew Leaves
+
+![Difference Image](images/cels%20visualiser%202.png)
+
+### Powdery Mildew Montage
+
+![Powdery Mildew Montage](images/cels%20visualizer%203.png)
+
+### Healthy Leaf Montage
+
+![Healthy Montage](images/cels%20visualizer%204.png)
+
+---
+
+## Mildew Detector
+
+Users can:
+- upload leaf images,
+- receive real-time predictions,
+- download prediction reports.
+
+### Upload and Prediction System
+
+![Mildew Detector](images/mildew%20detector.png)
+
+### Prediction Result
+
+![Prediction Result](images/mildew%20detector%201.png)
+
+---
+
+## Project Hypothesis and Validation
+
+This page explains:
+- project hypothesis,
+- validation process,
+- final conclusions.
+
+![Project Hypothesis](images/Project%20Hypothesis%20and%20Validation.png)
+
+---
+
+## ML Performance Metrics
+
+This page presents:
+- dataset distribution,
+- model accuracy,
+- training history,
+- model evaluation metrics.
+
+### Dataset Distribution
+
+![Model Performance](images/Model%20Performance%20Metrics.png)
+
+### Training Accuracy and Loss
+
+![Training Metrics](images/Model%20Performance%20Metrics%201.png)
+
+### Final Model Accuracy
+
+![Final Accuracy](images/Model%20Performance%20Metrics%202.png)
+
+---
+
+# Machine Learning Model
+
+A Convolutional Neural Network (CNN) was used for binary image classification.
+
+The model was trained to distinguish:
+- healthy cherry leaves,
+- powdery mildew infected leaves.
+
+Final test accuracy:
+- 99.44%
+
+The project successfully exceeded the business requirement of 97% accuracy.
 
 ---
 
@@ -126,101 +235,6 @@ The hypothesis was validated through:
 - CNN model evaluation.
 
 The final CNN model achieved over 99% accuracy on the test dataset, confirming that the disease patterns are visually distinguishable and suitable for automated classification.
-
----
-
-# CRISP-DM Methodology
-
-The project follows the CRISP-DM methodology:
-
-1. Business Understanding
-2. Data Understanding
-3. Data Preparation
-4. Modeling
-5. Evaluation
-6. Deployment
-
----
-
-# User Stories
-
-| User Story ID | User Story | Business Requirement |
-|---|---|---|
-| US1 | As a user, I want to understand the project background and dataset information. | BR1 |
-| US2 | As a user, I want to visually compare healthy and infected leaves. | BR1 |
-| US3 | As a user, I want to inspect image montages and variability studies. | BR1 |
-| US4 | As a user, I want to upload leaf images and receive predictions. | BR2 |
-| US5 | As a user, I want to review model performance metrics and training history. | BR2 |
-
----
-
-# Machine Learning Business Logic
-
-## Visual Analysis
-
-The project performs visual analysis through:
-- average image comparison,
-- variability analysis,
-- image montage generation.
-
-These techniques help identify visual differences between healthy and infected leaves.
-
----
-
-## CNN Classification Model
-
-A Convolutional Neural Network was developed for binary image classification.
-
-The model:
-- receives cherry leaf images,
-- processes image patterns,
-- predicts whether the leaf is healthy or infected.
-
-The model achieved excellent accuracy while maintaining stable validation performance.
-
----
-
-# Dashboard Features
-
-The Streamlit dashboard includes:
-
-## Project Summary
-- project overview,
-- business requirements,
-- dataset distribution.
-
-## Cells Visualizer
-- average image visualization,
-- variability analysis,
-- image montage exploration.
-
-## Mildew Detector
-- image uploader,
-- real-time prediction system,
-- downloadable prediction reports.
-
-## Project Hypothesis
-- hypothesis explanation,
-- validation conclusions.
-
-## ML Performance
-- training accuracy plots,
-- training loss plots,
-- interactive dataset distribution chart,
-- model evaluation metrics.
-
----
-
-# Model Performance
-
-The final CNN model achieved:
-- Training Accuracy: >99%
-- Validation Accuracy: >99%
-- Test Accuracy: 99.44%
-- Stable validation loss
-- Balanced prediction performance
-
-The model successfully generalized to unseen test data.
 
 ---
 
@@ -269,78 +283,114 @@ The project provides the following actionable insights:
 
 ## Manual Testing
 
-| Feature | Expected Result | Status |
-|---|---|---|
-| Navigation Menu | All pages load correctly | PASS |
-| Cells Visualizer | Visualizations display correctly | PASS |
-| Image Montage | Random image samples are displayed correctly | PASS |
-| Image Upload | Uploaded images generate predictions | PASS |
-| Model Metrics | Training plots and interactive chart load correctly | PASS |
+| Feature | Result |
+|---|---|
+| Navigation Menu | PASS |
+| Cells Visualizer | PASS |
+| Image Montage | PASS |
+| Image Upload Prediction | PASS |
+| Model Performance Charts | PASS |
 
 ---
 
-## Technical Validation
+## Responsive Testing
 
-- Python code validated with PEP8 standards.
-- Deployment tested in Heroku cloud environment.
-- Model prediction pipeline verified successfully.
-- Streamlit dashboard tested after deployment.
-- Required image and output files verified in production.
+The application was tested successfully on:
+- Mobile devices
+- Tablets
+- Desktop screens
+
+All pages display correctly across different screen sizes.
+
+---
+
+# Fixed Bugs
+
+| Bug | Fix |
+|---|---|
+| FileNotFoundError during deployment | Fixed project paths and dataset structure |
+| Heroku slug too large | Replaced TensorFlow with tensorflow-cpu |
+| Missing montage images | Fixed dataset deployment paths |
+| Plot rendering issues | Added proper output image paths |
+| Dashboard deployment failures | Corrected Heroku deployment configuration |
+## Remaining Bugs
+
+No known bugs remaining.
 
 ---
 
 # Deployment
 
-## Heroku Deployment
+## Heroku Deployment Steps
 
-The application was deployed using Heroku and Streamlit.
-
-Deployment steps:
-1. Create Heroku application.
-2. Connect GitHub repository.
-3. Configure Config Vars if required.
-4. Deploy from the main branch.
-5. Verify dashboard functionality after deployment.
-
----
-
-# Repository and Branch Management
-
-The project is maintained on a single stable deployment branch.
-
-The deployed Heroku application uses the same branch as the final submitted GitHub repository to avoid branch inconsistencies and deployment path issues.
+1. Create a Heroku application.
+2. Connect the GitHub repository.
+3. Add the required dependencies.
+4. Create:
+   - requirements.txt
+   - Procfile
+   - setup.sh
+5. Deploy from the main branch.
+6. Open the deployed application.
 
 ---
 
-# Future Improvements
+# Local Deployment
 
-Possible future improvements for the project include:
-- supporting additional cherry leaf diseases,
-- implementing mobile device optimization,
-- adding prediction confidence explanations,
-- integrating cloud image storage,
-- expanding the dataset with more real-world agricultural images,
-- enabling batch image predictions for industrial use.
+## Clone Repository
+
+git clone https://github.com/Sori678/cherry-mildew-detector.git
+
+## Install Dependencies
+
+pip install -r requirements.txt
+
+## Run Application
+
+streamlit run app.py
+
 
 ---
 
-# Technologies Used
+# CRISP-DM Methodology
 
-- Python
-- TensorFlow / Keras
-- Streamlit
-- Pandas
-- NumPy
-- Matplotlib
-- Plotly
-- Scikit-learn
-- Jupyter Notebook
+The project follows the CRISP-DM process:
+1. Business Understanding
+2. Data Understanding
+3. Data Preparation
+4. Modeling
+5. Evaluation
+6. Deployment
+
+---
+
+# Future Features
+
+Possible future improvements:
+- Multi-disease detection
+- Mobile application
+- Camera image detection
+- Farmer analytics dashboard
+- Cloud storage integration
+- Batch image prediction
 
 ---
 
 # Credits
 
-- Dataset: Code Institute / Kaggle
+## Dataset
+
+- Code Institute
+- Kaggle Cherry Leaves Dataset
+
+## Libraries and Documentation
+
 - Streamlit Documentation
 - TensorFlow Documentation
-- Developed by Sorin Bivol
+- Plotly Documentation
+
+---
+
+# Author
+
+Developed by Sorin Bivol
