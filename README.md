@@ -17,13 +17,13 @@ The project was developed using the CRISP-DM methodology and deployed with Strea
 
 ## Heroku Deployment
 
-https://cherry-mildew-detector-sori-a62d7dccec61.herokuapp.com/
+[Live Application](https://cherry-mildew-detector-sori-a62d7dccec61.herokuapp.com/)
 
 ---
 
 # GitHub Repository
 
-https://github.com/Sori678/cherry-mildew-detector
+[GitHub Repository](https://github.com/Sori678/cherry-mildew-detector)
 
 ---
 
@@ -304,6 +304,26 @@ All pages display correctly across different screen sizes.
 
 ---
 
+## Validator Testing
+
+### Python
+
+All Python files were tested using:
+
+https://pep8ci.herokuapp.com/
+
+No major errors were found in the final version of the project.
+
+### README Validation
+
+The README file was reviewed and updated to ensure correct Markdown formatting and documentation structure.
+
+### Deployment Validation
+
+The deployed application was tested successfully on Heroku.
+
+All dashboard pages loaded correctly and all business requirements were fulfilled.
+
 # Fixed Bugs
 
 | Bug | Fix |
@@ -341,6 +361,24 @@ No known bugs remaining.
 
 git clone https://github.com/Sori678/cherry-mildew-detector.git
 
+## Navigate to Project Folder
+
+cd cherry-mildew-detector
+
+## Create Virtual Environment
+
+python -m venv venv
+
+## Activate Virtual Environment
+
+Windows:
+
+venv\Scripts\activate
+
+Mac/Linux:
+
+source venv/bin/activate
+
 ## Install Dependencies
 
 pip install -r requirements.txt
@@ -375,6 +413,29 @@ Possible future improvements:
 - Batch image prediction
 
 ---
+
+# Project Outcomes
+
+The project successfully met all business requirements.
+
+### Business Requirement 1
+
+A visual study was created using:
+- Average Images
+- Variability Images
+- Image Montages
+
+These tools clearly demonstrate the visual differences between healthy leaves and leaves affected by Powdery Mildew.
+
+### Business Requirement 2
+
+A Machine Learning model was trained and deployed.
+
+Results:
+- Test Accuracy: 99.44%
+- Required Accuracy: 97%
+
+The deployed application allows users to upload images and receive real-time disease predictions.
 
 # Credits
 
